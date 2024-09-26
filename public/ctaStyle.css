@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+
+
+.call-toaction-section{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: #ded8cd;
+    height: fit-content;
+}
+
+.cta-booking{
+    width: 33vw;
+    height: 27vw;
+}
+.cta-heading{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+.cta-heading h4{
+    font: inherit;
+    padding: 10px;
+}
+
+.cta-heading h3{
+    font-family: Arapey;
+    font-size: 2.5rem;
+}
+
+.cta-image{
+    width: 30vw;
+    height: 24.5vw;
+}
+
+.cta-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.cta-booking button{ 
+    background-color: #E6B17E;
+    border-style: none;
+    padding: 10px;
+    width: max-content;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size:0.9rem ;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 3.5%;
+}
+
+.cta-booking button>span {
+    background: #4D331F;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+}
+
+.cta-booking button:hover span{
+    width: 100%;
+    z-index: -1;
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 12px; /* Even smaller font size for even smaller screens */
+    }
+    .cta-heading h4{
+        font-size: 7px;
+    }
+    .cta-heading h3{
+        font-size: 1.5rem;
+    }
+
+    .cta-booking button{
+        font-size: 0.75rem;
+    }
+}

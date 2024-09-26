@@ -1,0 +1,4 @@
+user_id,is_admin,user_name,email,password,wish_list,booking_list
+1,false,John Doe,johndoe@example.com,password123,"{101, 102}","{201, 202}"
+2,false,Jane Smith,janesmith@example.com,password456,"{103}","{203, 204}"
+3,false,Emily Brown,emilybrown@example.com,password789,"{101, 103}","{201, 204}"

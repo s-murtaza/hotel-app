@@ -1,0 +1,15 @@
+.Footer {
+    display: flex; /* Changed from inline to inline-block for proper height application */
+    height: 70px;
+    background: linear-gradient(90deg, rgba(102, 96, 85, 1) 0%, rgba(222, 216, 205, 1) 33%, rgba(102, 96, 85, 1) 67%, rgba(222, 216, 205, 1) 100%);
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.Footer p{
+    position: relative;
+    margin: auto;
+    font-weight: 300;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+
+html {
+    font-size: 16px; /* Default font size */
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 12px; /* Even smaller font size for even smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 10px; /* Smallest font size for smallest screens */
+    }
+}
+
+.location-section{
+    display: block;
+    margin: auto;
+    padding: 15px 100px;
+    background-color: #ded8cd;
+}
+
+.location-heading{
+    margin-top: 5%;
+    text-align: center;
+    margin: auto;
+}
+
+.location-heading h4{
+    font: inherit;
+    padding: 10px;
+}
+
+.location-heading h3{
+    font-family: Arapey;
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+}
+
+
+.location-grid{
+    margin: auto;
+    width: 80vw;
+    height: 32vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    position: relative;
+}
+
+.location-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.location-data-top{
+    padding: 10px;
+    text-align: left;
+}
+
+.location-data-bottom{
+    padding: 10px;
+    text-align: right;
+}
+
+.location-data-top h3, .location-data-bottom h3{
+    font-family: Arapey;
+    font-size: 2.5rem;
+    margin-top: 20%;
+}
+
+.location-data-top p, .location-data-bottom p{
+    font-family: inherit;
+}
+
+.location-img img {
+    box-sizing: border-box;
+    width: 100%; /* Adjusting width to account for border */
+    height: 100%; /* Adjusting height to account for border */
+    border: 1px solid black; /* Properly defining the border */
+}
+
+@media (max-width: 600px) {
+    .location-section{
+        height: fit-content;
+        padding: 10px;
+    }
+    .location-grid {
+        position: relative;
+        width: 90vw;
+        height: fit-content;
+        grid-template-columns: 65vw 25vw; /* Adjusted for mobile layout */
+        grid-template-rows: repeat(4, 50vw); /* Fixed height for each row */
+        grid-template-areas:
+            "img1 data"
+            "img2 data"
+            "img3 data"
+            "img4 data";
+        gap: 10px;
+    }
+
+    .location-data-bottom{
+        padding: 10px;
+        text-align: left;
+    }
+    .location-data-top h3, .location-data-bottom h3{
+        font-size: 2rem;
+    }
+/* 
+    .location-data-top p, .location-data-bottom p{
+        font-size: 0.75rem;
+    } */
+
+    .one {
+        grid-area: img1;
+        width: 60vw;
+        height: 45vw;
+    }
+
+    .two {
+        grid-area: img2;
+        width: 60vw;
+        height: 45vw;
+    }
+
+    .three {
+        grid-area: img3;
+        width: 60vw;
+        height: 45vw;
+    }
+
+    .four {
+        grid-area: img4;
+        width: 60vw;
+        height: 45vw;
+    }
+
+    .location-data {
+        grid-area: data;
+        width: 100px;
+    }
+}

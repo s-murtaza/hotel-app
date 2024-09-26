@@ -1,0 +1,35 @@
+
+
+.background-gradient{
+    background: linear-gradient(90deg,rgba(102, 96, 85) 0%, rgba(222,216,205,1) 33%, rgba(102, 96, 85) 67%, rgba(222,216,205,1) 100% );
+}
+
+.background-gradient-ul{
+    background: linear-gradient(to right, rgba(102, 96, 85), rgba(222,216,205,1))
+}
+
+.navbar-a{
+    color: black;
+    margin: 10px;
+    font:inherit;
+    font-weight: 600;
+    font-size: 0.8rem ;
+    text-decoration: none;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.navbar-a::after{
+    content:"";
+    height: 4px;
+    width: 0%;
+    background:#4D331F;
+    position: absolute;
+    left: 0;
+    bottom: -10px;   
+    transition: 0.5s;
+}
+
+.navbar-a:hover::after{
+    width: 100%;
+}

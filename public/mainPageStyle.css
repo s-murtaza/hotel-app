@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+#main-page {
+    width: 100vw;
+}
+
+.hero-txt {
+    width: 25vw;
+    margin-left: 10%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f4f0c4;
+    height: fit-content;
+}
+
+@media (max-width: 600px) {
+    .hero-txt{
+        width: 80vw;
+        margin-left: 5%;
+    }    
+}
+
+.hero-txt h3{
+    font-family: Arapey;
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
+.hero-txt button{ 
+    background-color: #dba877;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-style: none;
+    padding: 10px;
+    height: 40px;
+    width: max-content;
+    color: white;
+    text-align: center;
+    font:inherit;
+    font-weight: 400;
+    font-size:0.9rem ;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 5%;
+}
+
+.hero-txt button>span {
+    background: #4D331F;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+}
+
+.hero-txt button:hover span{
+    width: 100%;
+    z-index: -1;
+}
+
+/* Small screens: one column */
+@media (max-width: 600px) {
+    .categories-box{
+        height: 1200px;
+    }
+    .categories_list {
+        width: 100%;
+        grid-template-columns: 1fr; /* One column */
+        grid-template-rows: 200px;
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* .categories_list a{
+    width: 25%;
+} */
+
+.category {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.category img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.overlay{
+    position: absolute;
+    background-color: #47453e;
+    opacity: 30%;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.category:hover{
+    .overlay{
+        width: 80%;
+        height: 80%;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+.category_text{
+    z-index: 2;
+    /* font-size: medium; */
+    color: white;
+    text-align: center;
+    
+}
+
+.category_text p{
+    text-decoration: none;
+    font-weight: 500;
+}
