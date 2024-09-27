@@ -17,4 +17,5 @@ build/
 *.tgz
 *.gz
 
-.pem
+*.pem
+*.key
