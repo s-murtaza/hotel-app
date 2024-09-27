@@ -8,7 +8,7 @@ import {
 import { Link as ScrollLink } from "react-scroll"; // Import the Link component from react-scroll
 import Button from "./ui/Button";
 import { useSelector } from "react-redux";
-import "/public/navbarStyle.css";
+import "../styles/navbarStyle.css";
 
 function NavBar() {
   const navLinks = [

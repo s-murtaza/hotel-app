@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../redux/state";
-import "../../public/registrationStyle.css";
+import "../styles/registrationStyle.css";
 import { useNavigate } from "react-router-dom";
 import {toast} from "react-toastify"
 

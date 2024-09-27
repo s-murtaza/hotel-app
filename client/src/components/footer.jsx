@@ -1,5 +1,4 @@
-import React from 'react';
-import '/public/footer.css'
+import '../styles/footer.css'
 
 function Footer(){
     //('footer rendered');

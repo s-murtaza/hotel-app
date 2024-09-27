@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "/public/mainPageStyle.css";
+import "../styles/mainPageStyle.css";
 import Footer from "/src/components/footer.jsx";
 import Responsive from "/src/components/gallery.jsx";
 import LocationSection from "../components/locationSection.jsx";
@@ -51,7 +51,7 @@ export default MainPage;
 // import React from 'react';
 // import PersonIcon from '@mui/icons-material/Person';
 // import RegistrationModal from "./RegistrationModal";
-// import '/public/mainPageStyle.css'; // Adjust the import path for CSS
+// import '../styles/mainPageStyle.css'; // Adjust the import path for CSS
 
 // function MainPage(){
 //     //('MainPage is called');

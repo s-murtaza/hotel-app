@@ -1,5 +1,5 @@
 import React from 'react';
-import "/public/categoryStyle.css";
+import "../styles/categoryStyle.css";
 import {Link, Outlet} from 'react-router-dom';
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import {

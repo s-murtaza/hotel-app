@@ -1,4 +1,4 @@
-import "/public/ButtonStyle.css";
+import "../../styles/ButtonStyle.css";
 import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";

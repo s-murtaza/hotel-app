@@ -1,5 +1,5 @@
 import React from "react";
-import "/public/locationSectionStyle.css";
+import "../styles/locationSectionStyle.css";
 import { Outlet, Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 

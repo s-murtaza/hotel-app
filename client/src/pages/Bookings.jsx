@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import ListingCard from "../components/ListingCard";
-import Footer from "../components/footer";
 export default function Bookings() {
   const user = useSelector((state) => state.user.user);
   const [bookings, setBookings] = useState([]);
@@ -10,28 +9,33 @@ export default function Bookings() {
   const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/bookings/user/${userId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+    // Only fetch bookings if user is logged in
+    if (userId && token) {
+      const fetchBookings = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:3000/bookings/user/${userId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.status === 200) {
+            setBookings(response.data.bookings);
           }
-        );
-
-        if (response.status === 200) {
-          setBookings(response.data.bookings);
-          //(response.data.bookings);
+        } catch (error) {
+          console.error("Error fetching bookings:", error.message);
         }
-      } catch (error) {
-        console.error("Error fetching bookings:", error.message);
-      }
-    };
+      };
 
-    fetchBookings();
-  }, [userId, token]);
+      fetchBookings();
+    } else {
+      // Reset bookings if user is logged out
+      setBookings([]);
+    }
+  }, [userId, token]); // Dependencies
 
   return (
     <>
@@ -51,7 +55,6 @@ export default function Bookings() {
           <p>No bookings found.</p>
         )}
       </div>
-      <Footer />
     </>
   );
 }

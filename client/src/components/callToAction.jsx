@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "/public/ctaStyle.css";
+import "../styles/ctaStyle.css";
 import Reveal from "./ui/Reveal";
 import { AnimatePresence } from "framer-motion";
 import Modal from "./Modal";
