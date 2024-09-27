@@ -24,38 +24,7 @@ const db = new pg.Client({
         },
 });
 
-
 db.connect();
-
-// const url = require('url');
-
-// const config = {
-//     user: "avnadmin",
-//     password: process.env.DB_PASS,
-//     host: "pg-hotel-app-hotel-app-db.k.aivencloud.com",
-//     port: process.env.DB_PORT,
-//     database: "defaultdb",
-//     ssl: {
-//         rejectUnauthorized: false,
-//         ca: fs.readFileSync('./ca.pem').toString(), // Use the path to your certificate file
-//     },
-// };
-
-// const db = new pg.Client(config);
-// db.connect(function (err) {
-//     if (err)
-//         throw err;
-//     db.query("SELECT VERSION()", [], function (err, result) {
-//         if (err)
-//             throw err;
-
-//         console.log(result.rows[0].version);
-//         db.end(function (err) {
-//             if (err)
-//                 throw err;
-//         });
-//     });
-// });
 
 app.use(bodyParser.json());
 
@@ -105,7 +74,6 @@ app.post("/signup", async (req, res) => {
       email,
     ]);
           const user = userResult.rows[0];
-          // delete user.password;
           const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, {
             expiresIn: "1h",
           });
