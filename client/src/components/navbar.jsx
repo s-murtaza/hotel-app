@@ -27,7 +27,7 @@ function NavBar() {
       <div className="shadow-md md:flex items-center justify-evenly rounded-lg py-6 md:py-4 md:px-16 px-7 mx-2 background-gradient">
         <img
           className="h-14"
-          src="src/assets/stayfindr-logo-black-transparent.png"
+          src="/assets/stayfindr-logo-black-transparent.png"
           alt="hotelLogo"
         />
         <div
