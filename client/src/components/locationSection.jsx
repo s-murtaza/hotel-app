@@ -7,22 +7,22 @@ const locationData = [
   {
     city: "Dubai",
     country: "United Arab Emirates",
-    img: "/src/assets/locationAssets/dubaiLoc.jpeg",
+    img: "/assets/locationAssets/dubaiLoc.jpeg",
   },
   {
     city: "Dubai",
     country: "United Arab Emirates",
-    img: "/src/assets/locationAssets/dubaiLoc.jpeg",
+    img: "/assets/locationAssets/dubaiLoc.jpeg",
   },
   {
     city: "Dubai",
     country: "United Arab Emirates",
-    img: "/src/assets/locationAssets/dubaiLoc.jpeg",
+    img: "/assets/locationAssets/dubaiLoc.jpeg",
   },
   {
     city: "Dubai",
     country: "United Arab Emirates",
-    img: "/src/assets/locationAssets/dubaiLoc.jpeg",
+    img: "/assets/locationAssets/dubaiLoc.jpeg",
   },
 ];
 function LocationSection() {
@@ -35,7 +35,7 @@ function LocationSection() {
 
       <div className="location-grid">
         <div className="location-img one">
-          <img src="/src/assets/locationAssets/dubaiLoc.jpeg" alt="dubai" />
+          <img src="/assets/locationAssets/dubaiLoc.jpeg" alt="dubai" />
         </div>
         <div className="location-data-top">
           <Reveal>
@@ -44,7 +44,7 @@ function LocationSection() {
           </Reveal>
         </div>
         <div className="location-img two">
-          <img src="/src/assets/locationAssets/parisLoc.jpeg" alt="paris" />
+          <img src="/assets/locationAssets/parisLoc.jpeg" alt="paris" />
         </div>
         <div className="location-data-top">
           <Reveal>
@@ -59,7 +59,7 @@ function LocationSection() {
           </Reveal>
         </div>
         <div className="location-img three">
-          <img src="/src/assets/locationAssets/sydneyLoc.jpeg" alt="dubai" />
+          <img src="/assets/locationAssets/sydneyLoc.jpeg" alt="dubai" />
         </div>
         <div className="location-data-bottom">
           <Reveal>
@@ -68,7 +68,7 @@ function LocationSection() {
           </Reveal>
         </div>
         <div className="location-img four">
-          <img src="/src/assets/locationAssets/islamabadLoc.jpeg" alt="dubai" />
+          <img src="/assets/locationAssets/islamabadLoc.jpeg" alt="dubai" />
         </div>
       </div>
     </div>

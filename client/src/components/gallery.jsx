@@ -7,27 +7,27 @@ import { CustomNextArrow, CustomPrevArrow } from './customArrows';
 
 const components = [
   {
-    img: '/src/assets/galleryAssets/GalleryAsset1.jpeg',
+    img: '/assets/galleryAssets/GalleryAsset1.jpeg',
     alt: '#'
   },
   {
-    img: '/src/assets/galleryAssets/GalleryAsset2.png',
+    img: '/assets/galleryAssets/GalleryAsset2.png',
     alt: 'GalleryAsset2'
   },
   {
-    img: '/src/assets/galleryAssets/GalleryAsset3.png',
+    img: '/assets/galleryAssets/GalleryAsset3.png',
     alt: 'GalleryAsset3'
   },
   {
-    img: '/src/assets/galleryAssets/GalleryAsset4.png',
+    img: '/assets/galleryAssets/GalleryAsset4.png',
     alt: 'GalleryAsset4'
   },
   {
-    img: '/src/assets/galleryAssets/GalleryAsset5.png',
+    img: '/assets/galleryAssets/GalleryAsset5.png',
     alt: 'GalleryAsset5'
   },
   {
-    img: '/src/assets/galleryAssets/GalleryAsset6.jpeg',
+    img: '/assets/galleryAssets/GalleryAsset6.jpeg',
     alt: 'GalleryAsset6'
   },
 ];

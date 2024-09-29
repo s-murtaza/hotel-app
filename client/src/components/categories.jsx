@@ -15,31 +15,31 @@ import {
 
 const categories = [
     {
-      img: "/src/assets/beach_cat.jpg",
+      img: "/assets/beach_cat.jpg",
       label: "Beach Front",
       icon: <TbBeach />,
       description: "This property is close to the beach!",
     },
     {
-      img: "/src/assets/countryside_cat.webp",
+      img: "/assets/countryside_cat.webp",
       label: "Country Side",
       icon: <TbMountain />,
       description: "This property is in the countryside!",
     },
     {
-      img: "/src/assets/pool_cat.jpg",
+      img: "/assets/pool_cat.jpg",
       label: "Amazing Pools",
       icon: <TbPool />,
       description: "This is property has a beautiful pool!",
     },
     {
-      img: "/src/assets/camping_cat.jpg",
+      img: "/assets/camping_cat.jpg",
       label: "Camping",
       icon: <GiForestCamp />,
       description: "This property offers camping activities!",
     },
     {
-      img: "/src/assets/desert_cat.webp",
+      img: "/assets/desert_cat.webp",
       label: "Desert",
       icon: <GiCactus />,
       description: "This property is in the desert!",

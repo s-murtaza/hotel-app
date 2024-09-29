@@ -66,7 +66,7 @@ export default MainPage;
 //         <div className="main-page">
 //             <header>
 //                 <div className="headerContainer">
-//                     <img id="hotelLogo" src="/src/assets/xhotel-high-resolution-logo-transparent.png" alt="hotelLogo" />
+//                     <img id="hotelLogo" src="/assets/xhotel-high-resolution-logo-transparent.png" alt="hotelLogo" />
 //                     <nav className="navBar">
 //                         <ul>
 //                             <li className="hover-underline-animation"><a href="#">DESTINATIONS</a></li>
@@ -83,7 +83,7 @@ export default MainPage;
 //                 </div>
 //             </header>
 //             <div className="frontPage">
-//                 <img src="/src/assets/frontPic.png" alt="frontPic" />
+//                 <img src="/assets/frontPic.png" alt="frontPic" />
 //                 <div className="frontPageTxt">
 //                     <h3>Epitomize the art</h3>
 //                     <h3>of gracious living</h3>

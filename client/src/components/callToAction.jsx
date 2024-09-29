@@ -26,7 +26,7 @@ function CallToAction() {
         </div>
       </div>
       <div className="cta-image">
-        <img src="/src/assets/ctaImg.jpeg" alt="ctaImg" />
+        <img src="/assets/ctaImg.jpeg" alt="ctaImg" />
       </div>
       <AnimatePresence>
         {modalIsOpen && <Modal onClose={closeModal} />}
