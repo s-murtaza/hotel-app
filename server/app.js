@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import * as fs from "fs"; 
 import pg from "pg";
 import cors from "cors";
 import bcrypt from "bcrypt";
@@ -10,18 +9,21 @@ dotenv.config();
 
 const saltRounds = 10;
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+// const sslCert1 = Buffer.from(process.env.SSL_CERTIFICATE_1, 'base64').toString('utf-8');
+// const sslCert2 = Buffer.from(process.env.SSL_CERTIFICATE_2, 'base64').toString('utf-8');
+// const sslCert3 = Buffer.from(process.env.SSL_CERTIFICATE_3, 'base64').toString('utf-8');
+// const sslCertificate = sslCert1+sslCert2+sslCert3
 
 const db = new pg.Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_APP,
-  password: process.env.AWS_RDS_PASS,
+  user: process.env.RENDER_USER,
+  host: process.env.RENDER_HOST,
+  database: process.env.RENDER_NAME,
+  password: process.env.RENDER_PASS,
   port: process.env.DB_PORT || 5432,
   ssl: {
-            rejectUnauthorized: false,
-            ca: fs.readFileSync('./eu-west-3-bundle.pem').toString(), // Use the path to your certificate file
-        },
+    rejectUnauthorized: true,
+  }
 });
 
 db.connect();
@@ -29,7 +31,7 @@ db.connect();
 app.use(bodyParser.json());
 
 var corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.ORIGIN,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
