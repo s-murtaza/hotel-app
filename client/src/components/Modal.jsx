@@ -4,10 +4,10 @@ import { IoEarth } from "react-icons/io5";
 import { motion } from "framer-motion";
 
 const locations = [
-  { name: "Dubai", path: "/listings?location=Dubai", icon: "src/assets/iconAssets/dubaiIcon.png", imgSize: "h-24" },
-  { name: "Sydney", path: "/listings?location=Sydney", icon: "src/assets/iconAssets/sydneyIcon.png", imgSize: "h-12" },
-  { name: "Paris", path: "/listings?location=Paris", icon: "src/assets/iconAssets/parisIcon.png", imgSize: "h-24" },
-  { name: "Islamabad", path: "/listings?location=Islamabad", icon: "src/assets/iconAssets/isbIcon.png", imgSize: "h-12" },
+  { name: "Dubai", path: "/listings?location=Dubai", icon: "/assets/iconAssets/dubaiIcon.png", imgSize: "h-24" },
+  { name: "Sydney", path: "/listings?location=Sydney", icon: "/assets/iconAssets/sydneyIcon.png", imgSize: "h-12" },
+  { name: "Paris", path: "/listings?location=Paris", icon: "/assets/iconAssets/parisIcon.png", imgSize: "h-24" },
+  { name: "Islamabad", path: "/listings?location=Islamabad", icon: "/assets/iconAssets/isbIcon.png", imgSize: "h-12" },
   { name: "global", path: "/listings" }
 ];
 
