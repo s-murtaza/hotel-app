@@ -14,7 +14,7 @@ export default function Bookings() {
       const fetchBookings = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3000/bookings/user/${userId}`,
+            `https://hotelapp-ga27.onrender.com/bookings/user/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

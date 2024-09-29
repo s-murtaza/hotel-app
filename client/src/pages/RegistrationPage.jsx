@@ -48,7 +48,7 @@ function AccountPage() {
     const endpoint = isActive ? "/signup" : "/login";
     try {
       const response = await axios.post(
-        `http://localhost:3000${endpoint}`,
+        `https://hotelapp-ga27.onrender.com${endpoint}`,
         formData
       ); // Ensure to use backticks here
       //("Server response:", response.data);

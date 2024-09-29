@@ -43,7 +43,7 @@ export default function Listings() {
   };
 
   useEffect(() => {
-    let url = "http://localhost:3000/listings";
+    let url = "https://hotelapp-ga27.onrender.com/listings";
 
     if (locationFilter && locationFilter) {
       url += `?location=${locationFilter}`;

@@ -15,7 +15,7 @@ export default function WishlistPage() {
         // Batch API call
         if(user){
           axios
-          .post("http://localhost:3000/rooms/batch", { roomIds: wishList })
+          .post("https://hotelapp-ga27.onrender.com/rooms/batch", { roomIds: wishList })
           .then((response) => {
             setWishlistItems(response.data);
           })

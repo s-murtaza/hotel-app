@@ -53,7 +53,7 @@ export default function ListingDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/listing-details?roomId=${listingId}`)
+      .get(`https://hotelapp-ga27.onrender.com/listing-details?roomId=${listingId}`)
       .then((res) => {
         setListingDetails(res.data[0]); // Assuming res.data is an array and you need the first object
         //(`this is the response: ${JSON.stringify(res.data[0])}`);
@@ -113,7 +113,7 @@ export default function ListingDetails() {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/bookings/create",
+        "https://hotelapp-ga27.onrender.com/bookings/create",
         bookingForm, // The request body
         {
           headers: {
