@@ -6,7 +6,8 @@ import axios from "axios";
 import Footer from "../components/footer";
 
 export default function Listings() {
-  const [searchParams] = useSearchParams(); 
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchParams] = useSearchParams();
   const locationFilter = searchParams.get("location");
   const categoryFilter = searchParams.get("category");
 
@@ -22,13 +23,7 @@ export default function Listings() {
 
   const handleLocationChange = (e) => {
     const newLocation = e.target.checked ? e.target.value : "";
-    //(e.target.checked, e.target.value);
-    //(newLocation);
-    // if (newLocation === "All Location") {
-    //   setSelectedLocation("");
-    // } else {
-      setSelectedLocation(newLocation);
-    // }
+    setSelectedLocation(newLocation);
 
     // Use navigate to update the URL with the new location filter
     if (newLocation && newLocation != "All Location") {
@@ -52,34 +47,39 @@ export default function Listings() {
       url += `?category=${categoryFilter}`;
     }
 
-    //(url);
-
-    axios.get(url).then((res) => {
+    axios
+      .get(url)
+      .then((res) => {
         setListings(res.data);
-        //(`this is the response: ${JSON.stringify(res.data)}`);
+        setIsLoading(false);
       })
       .catch((err) => {
-        //(err);
+        // setIsLoading(false);
       });
   }, [locationFilter, categoryFilter]);
 
   return (
     <>
-        <div className="flex flex-col md:flex-row bg-neutral-100 pt-48">
-      <ListingFilters
-        selectedLocation={selectedLocation}
-        selectedCategory={selectedCategory}
-        handleCategoryChange={handleCategoryChange}
-        handleLocationChange={handleLocationChange}
-      />
-
-      <ul className="mx-auto w-fit">
-        {listings.map((listing) => (
-          <ListingCard listing={listing} key={listing.room_id} />
-        ))}
-      </ul>
-    </div>
-    <Footer/>
+      <div className="flex flex-col min-h-[90vh] md:flex-row bg-neutral-100 pt-48">
+        {isLoading ? (
+          <p className="mx-auto text-center text-3xl font-Arapey font-medium text-orange-950 tracking-wider">Loading..</p>
+        ) : (
+          <>
+            <ListingFilters
+              selectedLocation={selectedLocation}
+              selectedCategory={selectedCategory}
+              handleCategoryChange={handleCategoryChange}
+              handleLocationChange={handleLocationChange}
+            />
+            <ul className="mx-auto w-fit">
+              {listings.map((listing) => (
+                <ListingCard listing={listing} key={listing.room_id} />
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }
