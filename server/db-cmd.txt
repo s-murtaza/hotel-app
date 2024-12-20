@@ -1,0 +1,1 @@
+pg_restore -h dpg-cslrbkpu0jms73d130og-a.frankfurt-postgres.render.com -U hotelapp_db_2_user -d hotelapp_db_2 C:/Users/murta/Downloads/hotelapp_dump.sql
