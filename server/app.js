@@ -6,33 +6,43 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
+import http from 'http'
+const { neon } = require("@neondatabase/serverless");
+// import {neon} from '@neondatabase/serverless'
+
+const sql = neon(process.env.DATABASE_URL);
+
+const requestHandler = async (req, res) => {
+  const result = await sql`SELECT version()`;
+  const { version } = result[0];
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(version);
+};
+
 
 const saltRounds = 10;
 const app = express();
 const port = process.env.PORT;
-// const sslCert1 = Buffer.from(process.env.SSL_CERTIFICATE_1, 'base64').toString('utf-8');
-// const sslCert2 = Buffer.from(process.env.SSL_CERTIFICATE_2, 'base64').toString('utf-8');
-// const sslCert3 = Buffer.from(process.env.SSL_CERTIFICATE_3, 'base64').toString('utf-8');
-// const sslCertificate = sslCert1+sslCert2+sslCert3
 
-const db = new pg.Client({
-  user: process.env.RENDER_USER,
-  host: process.env.RENDER_HOST,
-  database: process.env.RENDER_NAME,
-  password: process.env.RENDER_PASS,
-  port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: true,
-  }
-});
 
-db.connect();
+// const db = new pg.Client({
+//   user: process.env.RENDER_USER,
+//   host: process.env.RENDER_HOST,
+//   database: process.env.RENDER_NAME,
+//   password: process.env.RENDER_PASS,
+//   port: process.env.DB_PORT || 5432,
+//   ssl: {
+//     rejectUnauthorized: true,
+//   }
+// });
+
+// db.connect();
 
 app.use(bodyParser.json());
 
 var corsOptions = {
   origin: process.env.ORIGIN,
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200, 
 };
 
 app.use(cors(corsOptions)); // Use CORS to handle cross-origin requests
@@ -342,5 +352,5 @@ app.get("/bookings/user/:userId", async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  //(`Server is running on port ${port}`);
+  (`Server is running on port ${port}`); 
 });
