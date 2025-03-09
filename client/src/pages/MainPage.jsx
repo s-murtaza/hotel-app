@@ -23,7 +23,7 @@ function MainPage() {
 
   return (
     <div id="mainPage">
-      <div className="h-[90vh] flex flex-row justify-between items-center lg:px-32 px-5 bg-[url('/assets/upscaledHeroImgE.jpg')] bg-cover bg-no-repeat">
+      <div className="h-[90vh] flex flex-row justify-between items-center lg:px-32 px-5 bg-[url('/assets/upscaledHeroImgE.webp')] bg-cover bg-no-repeat">
         <div
           className="hero-txt"
         >

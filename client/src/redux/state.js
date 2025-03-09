@@ -30,14 +30,14 @@ export const toggleWishlistItem = createAsyncThunk(
 
       if (roomExistsInWishlist) {
         // If room exists in wishlist, send request to remove it
-        response = await axios.delete(`https://hotelapp-ga27.onrender.com/wishlist/${roomId}`, {
+        response = await axios.delete(`${import.meta.env.VITE_BACKEND_STRING}/wishlist/${roomId}`, {
           headers: {
             Authorization: `Bearer ${token}` // Send the token in the headers
           }
         });
       } else {
         // If room doesn't exist in wishlist, send request to add it
-        response = await axios.post(`https://hotelapp-ga27.onrender.com/wishlist`, { roomId }, {
+        response = await axios.post(`${import.meta.env.VITE_BACKEND_STRING}/wishlist`, { roomId }, {
           headers: {
             Authorization: `Bearer ${token}` // Send the token in the headers
           }

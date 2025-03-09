@@ -6,18 +6,63 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
-import http from 'http'
-const { neon } = require("@neondatabase/serverless");
-// import {neon} from '@neondatabase/serverless'
 
-const sql = neon(process.env.DATABASE_URL);
-
-const requestHandler = async (req, res) => {
-  const result = await sql`SELECT version()`;
-  const { version } = result[0];
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end(version);
+console.log('this is the user:',process.env.DB_USER, process.env.PASSWORD, process.env.ORIGIN)
+const config = {
+    user: process.env.DB_USER,
+    password: process.env.PASSWORD,
+    host: process.env.HOST,
+    port: process.env.DB_PORT,
+    database: "defaultdb",
+    ssl: {
+      rejectUnauthorized: false,
+      ca: `-----BEGIN CERTIFICATE-----
+      MIIEQTCCAqmgAwIBAgIUcvSAc1c5JecoOuCUcDFiSW9TsrowDQYJKoZIhvcNAQEM
+      BQAwOjE4MDYGA1UEAwwvZjViNThmMTQtOThkOS00MThkLTllODUtMDRlYzU5NTE0
+      ZTJkIFByb2plY3QgQ0EwHhcNMjQwOTI2MTczMzQ5WhcNMzQwOTI0MTczMzQ5WjA6
+      MTgwNgYDVQQDDC9mNWI1OGYxNC05OGQ5LTQxOGQtOWU4NS0wNGVjNTk1MTRlMmQg
+      UHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAKcJMF9v
+      OThmvUWh7m6XP+GXbT6ywk6tzEgqwOliqnbciPZCnMPu8IIxqeXIa4HNxgtMwzeI
+      /uAUWPT5/TVYOe+GyMenOvlxUqtAjiGuhe5YQ8QWODXihmvfeLNkMBnEkL3RJUwf
+      tWzeNgUDSS2JYNnkgOTiHR1a2FPmeosf1JrcfVsAb5Qh82poPIZpNl67PpWHZoqP
+      nQ17+AOK9iiXwuUS2Yxn2m+FApmGm1Zikn+BUT8HpwMbhKoCUdulaUfve6dZ+8fP
+      6F8da3Fs9ROH8euIpwCH3SU17MKf0VBLfZ3cTJTxq7ptgxoB+8IPTkh/r4udISiq
+      m4Q5+z3MkU4KAu6zb0TmNUacvDpPYtXwSsJ54mzh3TpAttVJBrpIJJlH7asnOSju
+      vphE8eJc7tyWazj6QU1JJGOUYMuVZ8xtFV4ylyG5fB3GY74ROsQtnyQoRWXUpDue
+      DlHdR6ycOOH+pITBrMr0lck9UhsP7T1G7J1t8vgVUvqq0/3yLqdeDaUGJQIDAQAB
+      oz8wPTAdBgNVHQ4EFgQUqXNeTKiEi6qpHIFn+vGoPTPJVdEwDwYDVR0TBAgwBgEB
+      /wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAKYoGrmpBOpt4Pqu
+      Wimm8kYt3m9AeDZRTRRI/0/EK67SmhRNwb9YeyUIdHUhAn2SNhl8/xa1/08DlMj5
+      1DGRVEhcB0sQ+RKPogiNYQwIcjL/jRqzM4trFad97JepJvBf0faQuzbvi+Q9M1/s
+      cJlqSnhy+mkAFrgDkSSLY5kmhSSz9uWElK7dysVCTDSYO+XKMIRDS4rUI6AN5+C2
+      d6NDZ1kEtPkNWO0Dj9S4yVGigq9P0/gsGiHmWcJ+LgrL6Roaj4lu4n3VuBtrXqHU
+      n2zAFfXcgZcdlazb0kATQ3/TW3pNU4WEXqp2zSCbSHB3Vg/VM8TaY9TGmXAo21y7
+      BB371rNDE1hMK6SzN9Qh7nPYaebmnDDXSkdMJbE+qu7eGJLDzebzQgg1oBbk5EvH
+      gmnRNYnZhY6H0wSYM7ZM8M10YFbTyTK1S5WaoWzvoVOKkwMYx/dw9wCVQqfZoNCu
+      NXOuhM/tAmELiyGP+KrV+AaAztf83QsScPcYHdzgqWw/u05zGg==
+      -----END CERTIFICATE-----`
+      
+    }
 };
+
+const db = new pg.Client(config);
+db.connect(function (err) {
+  if (err) throw err;
+  
+  db.query("SELECT VERSION()", [], function (err, result) {
+      if (err) throw err;
+      console.log(result.rows[0].version);
+  });
+});
+
+// Close the connection only on app shutdown
+process.on('SIGINT', () => {
+  db.end(err => {
+      if (err) console.log('Error closing connection:', err);
+      else console.log('DB connection closed');
+      process.exit();
+  });
+});
 
 
 const saltRounds = 10;
@@ -25,23 +70,12 @@ const app = express();
 const port = process.env.PORT;
 
 
-// const db = new pg.Client({
-//   user: process.env.RENDER_USER,
-//   host: process.env.RENDER_HOST,
-//   database: process.env.RENDER_NAME,
-//   password: process.env.RENDER_PASS,
-//   port: process.env.DB_PORT || 5432,
-//   ssl: {
-//     rejectUnauthorized: true,
-//   }
-// });
 
-// db.connect();
 
 app.use(bodyParser.json());
 
 var corsOptions = {
-  origin: process.env.ORIGIN,
+  origin: 'http://localhost:5173',
   optionsSuccessStatus: 200, 
 };
 
@@ -352,5 +386,5 @@ app.get("/bookings/user/:userId", async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  (`Server is running on port ${port}`); 
+  console.log(`Server is running on port ${port}`); 
 });
