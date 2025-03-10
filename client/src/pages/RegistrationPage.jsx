@@ -47,8 +47,9 @@ function AccountPage() {
     event.preventDefault();
     const endpoint = isActive ? "/signup" : "/login";
     try {
+      const be = import.meta.env.VITE_BACKEND_STRING
       const response = await axios.post(
-        `https://hotelapp-ga27.onrender.com${endpoint}`,
+        `${be}${endpoint}`,
         formData
       ); // Ensure to use backticks here
       //("Server response:", response.data);
@@ -57,6 +58,7 @@ function AccountPage() {
         email: "",
         password: "",
       });
+      console.log(response)
       if(response.status === 201){
         handleLogin(response.data.user, response.data.token, response.data.wishList);
         toast.success('Registration Successfull');

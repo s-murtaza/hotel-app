@@ -38,7 +38,7 @@ export default function Listings() {
   };
 
   useEffect(() => {
-    let url = "https://hotelapp-ga27.onrender.com/listings";
+    let url = `${import.meta.env.VITE_BACKEND_STRING}/listings`;
 
     if (locationFilter && locationFilter) {
       url += `?location=${locationFilter}`;

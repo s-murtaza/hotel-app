@@ -53,7 +53,7 @@ export default function ListingDetails() {
 
   useEffect(() => {
     axios
-      .get(`https://hotelapp-ga27.onrender.com/listing-details?roomId=${listingId}`)
+      .get(`${import.meta.env.VITE_BACKEND_STRING}/listing-details?roomId=${listingId}`)
       .then((res) => {
         setListingDetails(res.data[0]); // Assuming res.data is an array and you need the first object
         //(`this is the response: ${JSON.stringify(res.data[0])}`);
@@ -112,8 +112,10 @@ export default function ListingDetails() {
         totalPrice: listingDetails.room_price * dayCount,
       };
 
+      console.log(process.env.BACKEND_STRING);
+
       const response = await axios.post(
-        "https://hotelapp-ga27.onrender.com/bookings/create",
+        "${process.env.BACKEND_STRING}/bookings/create",
         bookingForm, // The request body
         {
           headers: {
