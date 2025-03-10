@@ -73,9 +73,10 @@ const port = process.env.PORT;
 
 
 app.use(bodyParser.json());
-
+console.log('This is the origin:',process.env.ORIGIN); 
 var corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: process.env.ORIGIN,
+  // origin: 'http://localhost:5173',
   optionsSuccessStatus: 200, 
 };
 
