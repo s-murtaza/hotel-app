@@ -97,6 +97,18 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+app.get("/", async (req, res) => {
+  let query = `
+      SELECT r.*, h.hotel_name, h.hotel_location
+      FROM rooms r
+      JOIN hotels h ON r.hotel_id = h.hotel_id
+      WHERE 1=1
+  `;
+  const results = await db.query(query);
+  console.log(results);
+  return res.status(200).json({ message: "API is working", results: results.rows });
+})
+
 // Sign Up endpoint
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
