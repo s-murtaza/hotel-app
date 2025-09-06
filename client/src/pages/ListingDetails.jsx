@@ -102,7 +102,10 @@ export default function ListingDetails() {
   }
 
   async function handleSubmit() {
-    //("this is the handle submit function");
+    if (!user) {
+      toast.warn("Sign in to make a booking");
+      return;
+    }
     try {
       const bookingForm = {
         user_id: user.user_id,
